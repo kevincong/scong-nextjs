@@ -1,2 +1,2 @@
-# scong-nextjs
-This is a starter template for [Learn Next.js](https://nextjs.org/learn).
+# scong
+This is the homepage for scong using next.js.
