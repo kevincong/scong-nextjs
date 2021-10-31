@@ -11,7 +11,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div class="fixed overflow-hidden h-screen w-screen -z-1 filter brightness-50">
+      <div className="fixed overflow-hidden h-screen w-screen -z-1 filter brightness-50">
           <Image alt="Tennis" src={bgPic} layout="fill" objectFit="cover" quality={75} />
       </div>
 
