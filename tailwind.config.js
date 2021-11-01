@@ -5,6 +5,9 @@ module.exports = {
     extend: {
       zIndex: {
         '-1': '-1',
+      },
+      backgroundImage: {
+        'tennis': "url('/bg.jpg')",
       }
     },
   },
