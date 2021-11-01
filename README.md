@@ -1,2 +1,2 @@
 # scong
-This is the homepage for scong using next.js.
+This is the homepage for [scong.ca](https://scong.ca "scong.ca") using next.js.
