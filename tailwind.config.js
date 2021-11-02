@@ -7,7 +7,7 @@ module.exports = {
         '-1': '-1',
       },
       backgroundImage: {
-        'tennis': "url('/bg.png?webp')",
+        'tennis': "url('/bg_compressed.jpg?webp')",
       }
     },
   },
