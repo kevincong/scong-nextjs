@@ -60,7 +60,7 @@ export default function Home() {
       </main>
 
       <footer className="flex items-center justify-center w-full h-16">
-        <a className="flex text-xs items-center justify-center text-white">Copyright © 2021 | scong</a>
+        <a className="flex text-xs items-center justify-center text-white">Copyright © 2024 | scong</a>
       </footer>
 
       <style jsx>{`
