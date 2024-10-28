@@ -2,6 +2,10 @@ import { useState, useEffect } from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
 
+const myLoader = ({ src }) => {
+    return src; // Return the image URL directly
+};
+
 export default function Company() {
     const scrollToDesign = () => {
         const designSection = document.querySelector('#design-section');
@@ -27,7 +31,7 @@ export default function Company() {
             <Head>
                 <title>Scong - Photography & Design Services</title>
                 <meta name="description" content="Professional photography and design services" />
-                <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300&display=swap" rel="stylesheet" />
+                <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet" />
                 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
                 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
                 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -38,7 +42,7 @@ export default function Company() {
                 <div className="container">
                     <div className="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
                         <a href="/" className="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
-                            <Image src="/logo.png" width={40} height={40} alt="Scong Logo" />
+                            <Image src="/favicon.ico" width={40} height={40} alt="Scong Logo" />
                         </a>
 
                         <ul className="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
@@ -54,14 +58,23 @@ export default function Company() {
 
             {/* Hero Section */}
             <div className="hero-section">
+                <Image
+                    loader={myLoader}
+                    src="/DSC00801.JPG"
+                    alt="Hero Background"
+                    layout="fill"
+                    objectFit="cover"
+                    quality={100}
+                    priority
+                />
                 <div className="hero-content text-center">
-                    <h1 className="display-5 fw-bold mb-4">Welcome!</h1>
-                    <p className="lead mb-4">
+                    <h1 className="display-5 fw-bold mb-4" style={{ color: 'white' }}>Welcome!</h1>
+                    <p className="lead mb-4" style={{ color: 'white' }}>
                         At SCONG, we offer a unique blend of professional photography and design services tailored to both personal and commercial needs. With a creative eye and attention to detail, we specialize in capturing life's most meaningful moments and transforming ideas into visually compelling designs.
                     </p>
                     <div className="d-grid gap-2 d-sm-flex justify-content-sm-center">
-                        <button 
-                            type="button" 
+                        <button
+                            type="button"
                             className="btn btn-light btn-lg px-4"
                             onClick={scrollToDesign}
                         >
@@ -75,6 +88,7 @@ export default function Company() {
             <section id="design-section" className="service-section design-section">
                 <div className="background-image">
                     <Image
+                        loader={myLoader}
                         src="/DO01010492.JPG"
                         alt="Design Services"
                         layout="fill"
@@ -90,7 +104,12 @@ export default function Company() {
                         <p>
                             Our home design services provide custom graphic solutions, from branding and logo design to marketing materials like flyers, brochures, and digital media content. Whether you're looking to elevate your brand's identity or create stunning visual content, our design team works closely with you to bring your vision to life.
                         </p>
-                        <button className="btn btn-light btn-lg" onClick={scrollToContact}>Contact Us</button>
+                        <button
+                            className="btn btn-light btn-lg"
+                            onClick={scrollToContact}
+                        >
+                            Contact Us
+                        </button>
                     </div>
                 </div>
             </section>
@@ -99,6 +118,7 @@ export default function Company() {
             <section id="photography-section" className="service-section photography-section">
                 <div className="background-image">
                     <Image
+                        loader={myLoader}
                         src="/DSC01107.JPG"
                         alt="Photography Services"
                         layout="fill"
@@ -150,12 +170,13 @@ export default function Company() {
             </section>
 
             <style jsx>{`
+            * {
+                font-family: 'Roboto', sans-serif;
+            }
+
         .hero-section {
           position: relative;
           height: 100vh;
-          background-image: url('/DSC00801.JPG'); /* Set the background image */
-          background-size: cover;
-          background-position: center;
           display: flex;
           align-items: center;
           justify-content: center;
@@ -164,7 +185,20 @@ export default function Company() {
 
         .hero-content {
           text-align: center;
-          padding: 5rem;
+          padding: 2rem;
+          border-radius: 10px;
+          z-index: 1; /* Ensure content is above the background */
+        }
+
+        /* Ensure the image is behind the content */
+        .hero-section img {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          z-index: 0; /* Send the image behind the content */
         }
 
         .service-section {
