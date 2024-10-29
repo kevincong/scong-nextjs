@@ -2,10 +2,9 @@ import { useState, useEffect } from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
 
-const myLoader = ({ src }) => {
+const myImageLoader = ({ src }) => {
     return src; // Return the image URL directly
 };
-
 export default function Company() {
     const scrollToDesign = () => {
         const designSection = document.querySelector('#design-section');
@@ -42,7 +41,7 @@ export default function Company() {
                 <div className="container">
                     <div className="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
                         <a href="/" className="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
-                            <Image src="/favicon.ico" width={40} height={40} alt="Scong Logo" />
+                            <Image loader={myImageLoader} src="favicon.ico" width={40} height={40} alt="Scong Logo" />
                         </a>
 
                         <ul className="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
@@ -59,8 +58,8 @@ export default function Company() {
             {/* Hero Section */}
             <div className="hero-section">
                 <Image
-                    loader={myLoader}
-                    src="/DSC00801.JPG"
+                    loader={myImageLoader}
+                    src="DSC00801.JPG"
                     alt="Hero Background"
                     layout="fill"
                     objectFit="cover"
@@ -88,8 +87,8 @@ export default function Company() {
             <section id="design-section" className="service-section design-section">
                 <div className="background-image">
                     <Image
-                        loader={myLoader}
-                        src="/DO01010492.JPG"
+                        loader={myImageLoader}
+                        src="DO01010492.JPG"
                         alt="Design Services"
                         layout="fill"
                         objectFit="cover"
@@ -118,8 +117,8 @@ export default function Company() {
             <section id="photography-section" className="service-section photography-section">
                 <div className="background-image">
                     <Image
-                        loader={myLoader}
-                        src="/DSC01107.JPG"
+                        loader={myImageLoader}
+                        src="DSC01107.JPG"
                         alt="Photography Services"
                         layout="fill"
                         objectFit="cover"

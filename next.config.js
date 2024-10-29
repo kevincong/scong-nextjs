@@ -17,6 +17,13 @@ module.exports = withPlugins([
       quality: 75,
     },
   }],
-  
+
   // your other plugins here
 ]);
+
+module.exports = {
+  images: {
+    loader: 'custom',
+    loaderFile: './public/loader.js',
+  },
+}
